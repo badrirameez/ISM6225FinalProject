@@ -38,17 +38,17 @@ namespace ISM6225FinalProject.APIHandlerManager
     /// <returns></returns>
     public Places GetPlaces()
     {
-      string NATIONAL_PARK_API_PATH = BASE_URL + API_KEY;
+      string GOOGLE_PLACES_API_PATH = BASE_URL + API_KEY;
       string placeData = "";
       string nextpagetoken = "";
       Places places = null;
 
-      httpClient.BaseAddress = new Uri(NATIONAL_PARK_API_PATH);
+      httpClient.BaseAddress = new Uri(GOOGLE_PLACES_API_PATH);
         // It can take a few requests to get back a prompt response, if the API has not received
       //  calls in the recent past and the server has put the service on hibernation
       try
       {
-        HttpResponseMessage response = httpClient.GetAsync(NATIONAL_PARK_API_PATH).GetAwaiter().GetResult();
+        HttpResponseMessage response = httpClient.GetAsync(GOOGLE_PLACES_API_PATH).GetAwaiter().GetResult();
         if (response.IsSuccessStatusCode)
         {
           placeData = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
@@ -76,7 +76,7 @@ namespace ISM6225FinalProject.APIHandlerManager
                         else
                         {
                             nextpagetoken = Convert.ToString(places.next_page_token);
-                            string URL_Copy = NATIONAL_PARK_API_PATH;
+                            string URL_Copy = GOOGLE_PLACES_API_PATH;
                             string URL_Final = URL_Copy + "&pagetoken=" + nextpagetoken;
                             response = httpClient.GetAsync(URL_Final).GetAwaiter().GetResult();
 
