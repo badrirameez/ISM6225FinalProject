@@ -4,11 +4,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using NationalParks.Models;
-using NationalParks.APIHandlerManager;
+using ISM6225FinalProject.Models;
+using ISM6225FinalProject.APIHandlerManager;
 using Newtonsoft.Json;
 
-namespace NationalParks.Controllers
+namespace ISM6225FinalProject.Controllers
 {
     public class HomeController : Controller
     {

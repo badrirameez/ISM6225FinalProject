@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using Newtonsoft.Json;
-using NationalParks.Models;
+using ISM6225FinalProject.Models;
 
-namespace NationalParks.APIHandlerManager
+namespace ISM6225FinalProject.APIHandlerManager
 {
   public class APIHandler : IEnumerator, IEnumerable
     {

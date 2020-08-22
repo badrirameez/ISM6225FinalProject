@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "NationalParks": {
+    "ISM6225FinalProject": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
