@@ -20,9 +20,8 @@ namespace NationalParks.Controllers
         public IActionResult Parks()
         {
             APIHandler webHandler = new APIHandler();
-            Parks parks = webHandler.GetParks();
-
-            return View(parks);
+            Places places = webHandler.GetPlaces();
+            return View(places);
         }
 
         public IActionResult Privacy()

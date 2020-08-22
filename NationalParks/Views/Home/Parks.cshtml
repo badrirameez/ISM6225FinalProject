@@ -1,28 +1,61 @@
-﻿@model NationalParks.Models.Parks
-
+﻿@model NationalParks.Models.Places
 <h1>Parks</h1>
 <hr />
+<table width="100%" height="100%" border="0" border-style: solid;>
+    <tbody>
+        <tr>
+            <th>Icon</th>
+            <th>Attaction Name</th>
+            <th>Address</th>
+            <th>Rating Count</th>
+            <th>Rating</th>
+        </tr>
+            @foreach (NationalParks.Models.Place p in Model.results)
+            {
+                <tr>
+                    <td align="left">
+                        <img src="@p.icon" />
+                    </td>
+                    <td align="left">
+                        @p.name
+                    </td>
+                    <td align="left">
+                        @p.formatted_address
+                    </td>
+                    <td align="left">
+                        @p.user_ratings_total
+                    </td>
+                    <td align="left">
+                        @p.rating
+                    </td>
 
-@foreach (var item in Model.data)
-{
-<div>
-    <h3>
-        @Html.DisplayFor(modelItem => item.fullName)
-    </h3>
-    <div>
-        @Html.DisplayFor(modelItem => item.description)
-    </div>
-    <a href="@item.url" target="_blank">
-        @Html.DisplayFor(modelItem => item.url)
-    </a>
-    <div>
-        <h5>Directions: </h5>
-        @Html.DisplayFor(modelItem => item.directionsInfo)
-    </div>
-</div>
-<br/>
-}
+                </tr>
+            }
 
+
+    </tbody>
+</table>
+@*@foreach (var item in Model.data)
+    {
+        <div>
+            <h3>
+                @Html.DisplayFor(modelItem => item.name)
+            </h3>
+            <div>
+                @Html.DisplayFor(modelItem => item.description)
+            </div>
+            <a href="@item.url" target="_blank">
+                @Html.DisplayFor(
+               Item => item.directionsUrl)
+            </a>
+            <div>
+                <h5>Directions: </h5>
+                @Html.DisplayFor(modelItem => item.weatherInfo)
+            </div>
+        </div>
+        <br />
+    }
+*@
 <script>
-    alertDbSave(@ViewBag.dbSuccessComp);
+    @*alertDbSave(@ViewBag.dbSuccessComp);*@
 </script>
