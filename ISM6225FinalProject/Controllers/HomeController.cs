@@ -23,7 +23,10 @@ namespace ISM6225FinalProject.Controllers
             Places places = webHandler.GetPlaces();
             return View(places);
         }
-
+        public IActionResult AboutCityOfTampa()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
