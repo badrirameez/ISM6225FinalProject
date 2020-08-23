@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ISM6225FinalProject.Models
 {
-    // Model for parks data. These classes can be obtained by either using 
+    // Model for place data. These classes can be obtained by either using 
     // the Visual Studio editor (right-click -> Paste Special -> Paste Json as Classes)
     // or sites such as JsonToCSHarp
 

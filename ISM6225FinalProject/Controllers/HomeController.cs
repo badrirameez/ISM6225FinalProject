@@ -17,7 +17,7 @@ namespace ISM6225FinalProject.Controllers
             return View();
         }
 
-        public IActionResult Parks()
+        public IActionResult Attractions()
         {
             APIHandler webHandler = new APIHandler();
             Places places = webHandler.GetPlaces();
