@@ -27,6 +27,10 @@ namespace ISM6225FinalProject.Controllers
         {
             return View();
         }
+        public IActionResult AboutUS()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
