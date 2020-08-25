@@ -51,11 +51,11 @@ namespace ISM6225FinalProject.Controllers
                 dbContext.Add(user);
 
                 dbContext.SaveChanges();
-                ViewBag.MandatoryCheck = "User Created Successfully.";
+                ViewBag.MandatoryCheck = "Congratulations, you're in! We're proud to have you as a member.";
             }
             else
             {
-                ViewBag.MandatoryCheck = "Please enter values for the Mandatory fields marked in *.";
+                ViewBag.MandatoryCheck = "Fields marked in '*' are mandatory!";
             }
 
             return View("UserLogin");
@@ -103,9 +103,6 @@ namespace ISM6225FinalProject.Controllers
                 }
 
             }
-
-
-            
 
             httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Accept.Clear();
@@ -171,7 +168,7 @@ namespace ISM6225FinalProject.Controllers
                         }
 
                     }
-                    ViewBag.TopAttraction = "Top Attraction in " + Plan.location2;
+                    ViewBag.TopAttraction = "Here are the best places to visit in " + Plan.location2 + ".";
 
 
 
