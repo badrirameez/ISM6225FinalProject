@@ -1,0 +1,71 @@
+﻿@model ISM6225FinalProject.Models.Places
+<h1>Tampa Attractions</h1>
+<hr />
+<div class="text-center">
+    <section>
+        <table width="100%" height="15%" border="0">
+            <tbody>
+                <tr align="center">
+                    <td><h1>@ViewBag.TopAttraction</h1></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+<table width="100%" height="100%" border="0" border-style: solid;>
+    <tbody>
+        <tr>
+            <th>Attaction Name</th>
+            <th>Address</th>
+            <th>Rating Count</th>
+            <th>Google Location Id</th>
+        </tr>
+        @foreach (ISM6225FinalProject.Models.Place p in Model.results)
+        {
+            <tr>
+                <td align="left">
+                    <img src="@p.icon" />
+                </td>
+                <td align="left">
+                    @p.name
+                </td>
+                <td align="left">
+                    @p.formatted_address
+                </td>
+                <td align="left">
+                    @p.user_ratings_total
+                </td>
+                <td align="left">
+                    @p.place_id
+                </td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+@*@foreach (var item in Model.data)
+    {
+        <div>
+            <h3>
+                @Html.DisplayFor(modelItem => item.name)
+            </h3>
+            <div>
+                @Html.DisplayFor(modelItem => item.description)
+            </div>
+            <a href="@item.url" target="_blank">
+                @Html.DisplayFor(
+               Item => item.directionsUrl)
+            </a>
+            <div>
+                <h5>Directions: </h5>
+                @Html.DisplayFor(modelItem => item.weatherInfo)
+            </div>
+        </div>
+        <br />
+    }
+*@
+<script>
+    @*alertDbSave(@ViewBag.dbSuccessComp);*@
+</script>

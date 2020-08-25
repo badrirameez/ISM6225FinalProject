@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using Newtonsoft.Json;
 using ISM6225FinalProject.Models;
 
 namespace ISM6225FinalProject.APIHandlerManager
 {
-  public class APIHandler : IEnumerator, IEnumerable
+    public class APIHandler : IEnumerator, IEnumerable
     {
     // Obtaining the API key is easy. The same key should be usable across the entire
     // data.gov developer network, i.e. all data sources on data.gov.

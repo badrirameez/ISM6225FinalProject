@@ -1,0 +1,132 @@
+﻿@model ISM6225FinalProject.Models.UserLogin
+
+<div class="text-left">
+    <section>
+        <table width="100%" height="15%" border="0">
+            <tbody>
+                <tr align="left">
+                    <td><h1>Login to search other destinations!</h1></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+<br />
+<br />
+<div class="text-left">
+    <section>
+        @using (Html.BeginForm("Plan", "ProjectDB", FormMethod.Post))
+        {
+            <table border="0" align="left">
+                <tbody>
+                    <tr>
+                        <td width="152">Enter Username</td>
+                        <td width="152"><input type="text" name="user1" id="user1"></td>
+                        <td><input type="hidden" id="destination" name="destination"></td>
+                    </tr>
+                    <tr>
+                        <td>Enter Password</td>
+                        <td><input type="password" name="password1" id="password1"></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><input type="reset" name="reset" id="reset" value="Reset"></td>
+                        <td><input name="submit" type="submit" id="submit" value="Login"></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        }
+    </section>
+</div>
+<br />
+<br />
+<br />
+<br />
+<div class="text-left">
+    <section>
+        <table width="100%" height="15%" border="0">
+            <tr align="left">
+                <td width="152"><h3>Create a new account below.</h3></td>
+            </tr>
+        </table>
+    </section>
+</div>
+<br />
+<div class="text-left">
+    <section>
+        @using (Html.BeginForm("UserLogin", "ProjectDB", FormMethod.Post))
+        {
+            <table border="0" align="left">
+                <tbody>
+                    <tr>
+                        <td width="10">&nbsp;</td>
+                        <td width="152">First Name*</td>
+                        <td width="152"><input type="text" name="firstName" id="firstName"></td>
+                        <td width="18">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="10">&nbsp;</td>
+                        <td width="152">Last Name*</td>
+                        <td width="152"><input type="text" name="lastName" id="lastName"></td>
+                        <td width="18">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="10">&nbsp;</td>
+                        <td width="152">Email Address</td>
+                        <td width="152"><input type="text" name="email" id="email"></td>
+                        <td width="18">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="10">&nbsp;</td>
+                        <td width="152">Phone Number</td>
+                        <td width="152"><input type="text" name="phone" id="phone"></td>
+                        <td width="18">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="10">&nbsp;</td>
+                        <td width="152">Create Username*</td>
+                        <td width="152"><input type="text" name="userName" id="userName"></td>
+                        <td width="18">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="10">&nbsp;</td>
+                        <td width="152">Create Password*</td>
+                        <td width="152"><input type="password" name="password" id="password"></td>
+                        <td width="18">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><input type="reset" name="reset" id="reset" value="Reset"></td>
+                        <td><input name="submit" type="submit" id="submit" value="Create Login"></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+    </section>
+</div>
+<br />
+<br />
+<div class="text-center">
+    <section>
+        <table width="100%" height="15%" border="0">
+            <tr align="center">
+                <td width="152"><h3 style="color:red;">@ViewBag.MandatoryCheck</h3></td>
+            </tr>
+        </table>
+    </section>
+</div>
+

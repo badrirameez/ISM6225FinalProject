@@ -1,0 +1,201 @@
+﻿<div class="text-left">
+    <section>
+        <br />
+        <h1>Welcome @ViewBag.User, please enter a destination to discover places! </h1>
+    </section>
+</div>
+<br />
+<br />
+<div class="text-center">
+    <section>
+        @using (Html.BeginForm("Plan", "ProjectDB", FormMethod.Post))
+        {
+            <table border="0" align="Center" cellpadding="40">
+                <tr>
+                    <td width="10">&nbsp;</td>
+                    <td width="10">&nbsp;</td>
+                    <td><input type="hidden" id="password1" name="password1" value=""></td>
+                    <td width="152"><input type="text" name="destination" id="destination"></td>
+                    <td><input name="submit" type="submit" id="submit" value=" Discover! "></td>
+                    <td><input type="hidden" id="user1" name="user1" value="@ViewBag.User"></td>
+                </tr>
+            </table>
+        }
+    </section>
+</div>
+<div class="text-center">
+    <section>
+        <h1 style="color:red;">@ViewBag.TopAttraction</h1>
+</div>
+<div style="width: 60%; height=600px; float:left">
+    <div class="text-center">
+        <table width="100%" height="100%" border="2" border-style: solid;>
+            <tbody>
+                <tr>
+                    <th>Attraction Name</th>
+                    <th>Address</th>
+                </tr>
+                @foreach (ISM6225FinalProject.Models.Places p in Model)
+                {
+                    @foreach (Place r in p.results)
+                    {
+                        <tr>
+                            <td align="left">
+                                @r.name
+                            </td>
+                            <td align="left">
+                                @r.formatted_address
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<br />
+<div style="width: 40%; float:right" class="chart">
+    <div>
+        <canvas id="bar_chat1" style="width:100%; height:300px; background-color: #C0C0C0;"></canvas>
+    </div>
+    <div>
+        <canvas id="bar_chat" style="width:100%; height:300px; background-color: #C0C0C0;"></canvas>
+    </div>
+</div>
+<div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <script type="text/javascript">
+        var ctx = document.getElementById("bar_chat").getContext('2d');
+        var ctx1 = document.getElementById("bar_chat1").getContext('2d');
+
+        var hod = @Html.Raw(ViewBag.hod);
+        var rep = @Html.Raw(ViewBag.rep);
+        var barchat1 = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: hod,
+                datasets: [{
+                    label: "User destination Search",
+                    data: rep,
+                    backgroundColor: "yellow",
+                    hoverBackgroundColor: "rgba(232,105,90,0.8)",
+                    hoverBorderColor: "orange",
+                    pointBorderWidth: 10,
+                    pointHoverRadius: 10,
+                    pointHoverBorderWidth: 1,
+                    pointRadius: 3,
+                    fill: true,
+                    borderWidth: 4
+                }]
+            },
+
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Attraction'
+                        },
+                        ticks: { beginAtZero: true }
+                    }]
+                },
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            fontColor: "green",
+                            fontSize: 18,
+                            stepSize: 1,
+                            labelString: 'Search Count'
+                        },
+                        ticks: { beginAtZero: true }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: "purple",
+                            fontSize: 14,
+                            stepSize: 1,
+                            beginAtZero: true
+                        },
+                        gridLines: {
+                            color: "#fff",
+                            lineWidth: 2
+                        }
+                    }]
+                },
+                legends: {
+                    display: true,
+                    fontColor: "red",
+                    fontSize: 18
+                }
+            }
+        });
+
+        var rating = @Html.Raw(ViewBag.iData_Rating);
+        var attraction = @Html.Raw(ViewBag.iData_Attraction);
+
+        var barchat = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: attraction,
+                datasets: [{
+                    label: "Attraction review count",
+                    data: rating,
+                    backgroundColor: "yellow",
+                    hoverBackgroundColor: "rgba(232,105,90,0.8)",
+                    hoverBorderColor: "orange",
+                    pointBorderWidth: 10,
+                    pointHoverRadius: 10,
+                    pointHoverBorderWidth: 1,
+                    pointRadius: 3,
+                    fill: true,
+                    borderWidth: 4
+                }]
+            },
+
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Attraction'
+                        },
+                        ticks: { beginAtZero: true }
+                    }]
+                },
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            fontColor: "green",
+                            fontSize: 18,
+                            stepSize: 1,
+                            labelString: 'Review Count'
+                        },
+                        ticks: { beginAtZero: true }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: "purple",
+                            fontSize: 14,
+                            stepSize: 1,
+                            beginAtZero: true
+                        },
+                        gridLines: {
+                            color: "#fff",
+                            lineWidth: 2
+                        }
+                    }]
+                },
+                legends: {
+                    display: true,
+                    fontColor: "red",
+                    fontSize: 18
+                }
+            }
+        });
+    </script>
+</div>

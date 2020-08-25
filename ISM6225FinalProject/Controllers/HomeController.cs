@@ -31,6 +31,10 @@ namespace ISM6225FinalProject.Controllers
         {
             return View();
         }
+        public IActionResult UserLogin()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
